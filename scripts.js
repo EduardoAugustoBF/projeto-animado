@@ -13,7 +13,7 @@ let lastPosition = items.length - 1
 
 
 
-function setSlider () {
+function setSlider() {
 
     let itemOld = container.querySelector('.list .item.active')
     itemOld.classList.remove('active')
@@ -31,22 +31,18 @@ function setSlider () {
 
 
 nextButton.onclick = () => {
-    let itemOld = container.querySelector('.list .item.active')
-    itemOld.classList.remove('active')
 
 
     active = active + 1 > lastPosition ? 0 : active + 1
+    setSlider()
     items[active].classList.add('active')
 
-    let dotsOld = indicator.querySelector('ul li.active')
-    dotsOld.classList.remove('active')
-    dots[active].classList.add('active')
 
-    indicator.querySelector('.number').innerHTML = '0' + (active + 1)
 }
 
 
 prevButton.onclick = () => {
     active = active - 1 < firstPosition ? lastPosition : active - 1
+    setSlider()
     items[active].classList.add('active')
 }
